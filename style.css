@@ -1,0 +1,393 @@
+/* _________________________ */
+/* Custom properties         */
+/* _________________________ */
+:root {
+	/* colors */
+	--clr-dark: 219, 30%, 18%;
+	--clr-darker: 217, 28%, 15%;
+	--clr-darkest: 216, 53%, 9%;
+
+	--clr-accent: 186, 61%, 72%;
+	--clr-light: 177, 67%, 63%;
+	--clr-white: 0, 0%, 100%;
+
+	/* font sizes */
+	--fs-550: clamp(1.5rem, 4vw, 3rem);
+	--fs-500: clamp(1.5rem, 4vw, 2.5rem);
+	--fs-400: clamp(1.125rem, 4vw, 2.5rem);
+	--fs-350: clamp(0.875rem, 2vw, 1.25rem);
+	--fs-300: clamp(0.875rem, 1.6vw, 1rem);
+	--fs-200: clamp(0.75rem, 1.5vw, 1rem);
+	--fs-100: clamp(0.625rem, 1vw, 0.875rem);
+
+	/* font weight */
+	--fw-400: 400;
+	--fw-700: 700;
+
+	/* font-families */
+	--ff-sans: 'Open Sans', sans-serif;
+	--ff-raleway: 'Raleway', sans-serif;
+}
+
+/* _________________________ */
+/* Reset                     */
+/* _________________________ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+picture,
+ul {
+	margin: 0;
+	padding: 0;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+picture {
+	font-weight: 400;
+}
+
+li {
+	list-style: none;
+}
+
+/* Reset link underline */
+a {
+	text-decoration: none;
+	color: hsl(var(--clr-white));
+}
+
+/* set up the body */
+
+html {
+	overflow: auto;
+}
+
+body {
+	overflow: hidden;
+}
+
+body {
+	font-family: var(--ff-sans);
+	font-size: var(--fs-400);
+	line-height: 1.5;
+	min-height: 100vh;
+	background-color: hsl(var(--clr-darker));
+	color: hsl(var(--clr-white));
+	min-width: 375px;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+/* make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* make forms easier to work with */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* remove animations for people who;ve utrned them off */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* _________________________ */
+/* Utility classes           */
+/* _________________________ */
+
+/* general */
+.flex {
+	display: flex;
+	gap: var(--gap, 1rem);
+}
+
+.flex--column {
+	flex-direction: column;
+}
+
+.grid {
+	display: grid;
+	gap: var(--gap, 1rem);
+}
+
+.block {
+	display: block;
+}
+
+.flow > *:where(:not(:last-child)) {
+	margin-bottom: var(--flow-space, 1.5rem);
+}
+
+.container {
+	margin: 0 auto;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap; /* added line */
+	border: 0;
+}
+
+.box {
+	background: lightblue;
+	padding: 3rem;
+}
+
+/* colors */
+.bg-darkest {
+	background-color: hsl(var(--clr-darkest));
+}
+.bg-darker {
+	background-color: hsl(var(--clr-darker));
+}
+.bg-dark {
+	background-color: hsl(var(--clr-dark));
+}
+.text-white {
+	color: hsl(var(--clr-white));
+}
+
+/* typography */
+.ff-sans {
+	font-family: var(--ff-sans);
+}
+.ff-raleway {
+	font-family: var(--ff-raleway);
+}
+
+.fw-400 {
+	font-weight: var(--fw-400);
+}
+
+.fw-700 {
+	font-weight: var(--fw-700);
+}
+
+.letter-spacing-1 {
+	letter-spacing: 0.5px;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.fs-550 {
+	font-size: var(--fs-550);
+}
+
+.fs-500 {
+	font-size: var(--fs-500);
+}
+.fs-400 {
+	font-size: var(--fs-400);
+}
+.fs-350 {
+	font-size: var(--fs-350);
+}
+.fs-300 {
+	font-size: var(--fs-300);
+}
+.fs-200 {
+	font-size: var(--fs-200);
+}
+.fs-100 {
+	font-size: var(--fs-100);
+}
+
+/* _________________________ */
+/* Components                */
+/* _________________________ */
+
+button {
+	background: linear-gradient(134.79deg, #63e1d9 -42.11%, #34a0cd 100%);
+
+	width: clamp(240px, 28vw, 280px);
+	height: var(--height, 48px);
+	border-radius: 48px;
+	border: none;
+	color: var(--clr-white);
+}
+
+.logo {
+	width: clamp(80px, 14vw, 176px);
+}
+
+header {
+	padding-top: 24px;
+	margin-bottom: clamp(24px, 6vw, 75px);
+	align-items: center;
+}
+
+.hero .container {
+	width: clamp(320px, 55vw, 720px);
+	text-align: center;
+	align-items: center;
+	--gap: 0;
+	margin-bottom: clamp(120px, 15vw, 158px);
+}
+
+.features {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 80px;
+	margin-bottom: 160px;
+}
+
+@media (min-width: 900px) {
+	.features {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 147px;
+		justify-content: center;
+	}
+}
+
+.features > * {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	width: clamp(320px, 40vw, 384px);
+}
+
+.features img {
+	margin-bottom: 24px;
+}
+
+.features h2 {
+	margin-bottom: 8px;
+}
+
+.features p {
+	margin-bottom: 16px;
+}
+
+.middle-section {
+	display: flex;
+	padding-inline: 24px;
+	flex-direction: column;
+	align-items: center;
+	gap: 48px;
+	margin-bottom: 160px;
+}
+
+.middle-section a {
+	color: hsl(var(--clr-accent));
+	/* text-decoration: underline; */
+	display: flex;
+	align-items: center;
+	gap: 7px;
+}
+
+.middle-section a img {
+	position: relative;
+	top: 2px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: clamp(280px, 35vw, 360px);
+	height: clamp(160px, 20vw, 200px);
+	background-color: hsl(var(--clr-dark));
+	border-radius: 4px;
+	box-shadow: 0px 0px 8px 4px rgba(56, 56, 56, 0.0458843);
+	padding-inline: clamp(20px, 2vw, 26px);
+	justify-content: space-evenly;
+	--gap: 0;
+}
+
+.card h4 {
+	font-size: 10px;
+}
+.card p {
+	line-height: 18px;
+}
+.card img {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+}
+
+.cta {
+	width: clamp(336px, 60vw, 863px);
+	background-color: hsl(var(--clr-darker));
+	border-radius: 9px;
+	box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.254274);
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 37px;
+	padding-inline: 28px;
+	margin-bottom: 83px;
+	position: absolute;
+	top: -177px;
+}
+
+.cta p {
+	font-size: 14px;
+	margin-bottom: 32px;
+}
+
+.cta form {
+	align-items: center;
+}
+
+input {
+	width: var(--width, 240px);
+	height: var(--height, 48px);
+	border-radius: 48px;
+	border: none;
+	color: hsl(var(--clr-dark));
+	text-indent: 29px;
+}
+
+input::placeholder {
+	color: hsl(var(--clr-dark), 0.1);
+	font-size: var(--fs-100);
+	display: block;
+	text-indent: 29px;
+}
