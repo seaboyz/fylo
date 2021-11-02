@@ -312,11 +312,20 @@ header {
 
 .middle-section {
 	display: flex;
-	padding-inline: 24px;
+	padding-inline: clamp(24px, 7vw, 105px);
 	flex-direction: column;
 	align-items: center;
 	gap: 48px;
 	margin-bottom: 160px;
+}
+.middle-section > img {
+	width: clamp(304px, 50vw, 614px);
+}
+
+@media (min-width: 900px) {
+	.middle-section {
+		flex-direction: row;
+	}
 }
 
 .middle-section a {
