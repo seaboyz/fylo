@@ -31,6 +31,9 @@
 		<!-- css -->
 		<link rel="stylesheet" href="style.css" />
 
+		<!-- js -->
+		<script src="script.js" defer></script>
+
 		<title>Fylo</title>
 	</head>
 	<body class="container">
@@ -182,13 +185,14 @@
 						extremely generous. If you have any questions, our support team
 						would be happy to help you.
 					</p>
-					<form class="flex">
+					<form action="#" method="get" class="flex">
 						<input
-							class="fs-300"
-							type="email"
+							class="fs-300 email"
 							placeholder="email@example.com"
+							name="email"
 						/>
-						<button class="fs-300">Get Started For Free</button>
+						<button type="submit" class="fs-300">Get Started For Free</button>
+						<p class="fs-100 validation-msg">Error, please check your email</p>
 					</form>
 				</div>
 			</div>

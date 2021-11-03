@@ -402,6 +402,15 @@ header {
 .cta form {
 	align-items: center;
 	flex-direction: column;
+	position: relative;
+}
+
+.validation-msg {
+	color: #ff4242;
+	position: absolute;
+	bottom: -60px;
+	left: 30px;
+	display: none;
 }
 
 @media (min-width: 900px) {
@@ -417,6 +426,8 @@ header {
 	border: none;
 	color: hsl(var(--clr-dark));
 	text-indent: 29px;
+}
+.cta input:invalid {
 }
 
 @media (min-width: 900px) {
